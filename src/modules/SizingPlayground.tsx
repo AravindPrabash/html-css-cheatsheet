@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { Button } from '../components/ui/Button'
 import { Field } from '../components/ui/Field'
 import { Panel } from '../components/ui/Panel'
-import { RadioGroup } from '../components/ui/RadioGroup'
 import { Select } from '../components/ui/Select'
 import { Slider } from '../components/ui/Slider'
 import { Toggle } from '../components/ui/Toggle'
@@ -285,13 +284,13 @@ export function SizingPlayground({ showGuides }: SizingPlaygroundProps) {
         </div>
       </Panel>
 
-      <Panel title="Live Stage" className="min-h-[300px]">
+      <Panel title="Live Stage" className="min-h-75">
         <p className="mb-2 text-xs text-slate-500">
           This area simulates how elements behave in a real webpage.
         </p>
         <div
           className={cn(
-            'relative min-h-[240px] rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-600',
+            'relative min-h-60 rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-600',
             showGuides && 'stage-guides',
           )}
         >
