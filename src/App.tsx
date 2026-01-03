@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Tabs } from './components/ui/Tabs'
 import { Toggle } from './components/ui/Toggle'
 import { BoxModelPlayground } from './modules/BoxModelPlayground'
+import { CssDebuggerPlayground } from './modules/CssDebuggerPlayground'
 import { DisplayPlayground } from './modules/DisplayPlayground'
 import { FlexboxPlayground } from './modules/FlexboxPlayground'
 import { PositionPlayground } from './modules/PositionPlayground'
@@ -10,17 +11,20 @@ import { PseudoElementsPlayground } from './modules/PseudoElementsPlayground'
 import { QuickNotes } from './modules/QuickNotes'
 import { SelectorsPlayground } from './modules/SelectorsPlayground'
 import { OverflowPlayground } from './modules/OverflowPlayground'
+import { SizingPlayground } from './modules/SizingPlayground'
 
 function App() {
   const tabs = useMemo(
     () => [
       { id: 'display', label: 'Display' },
+      { id: 'box-model', label: 'Box Model' },
+      { id: 'sizing', label: 'Sizing' },
+      { id: 'position', label: 'Position' },
+      { id: 'overflow', label: 'Overflow' },
       { id: 'selectors', label: 'Selectors' },
       { id: 'pseudo-classes', label: 'Pseudo Classes' },
       { id: 'pseudo-elements', label: 'Pseudo Elements' },
-      { id: 'position', label: 'Position' },
-      { id: 'box-model', label: 'Box Model' },
-      { id: 'overflow', label: 'Overflow' },
+      { id: 'debugger', label: 'CSS Debugger' },
       { id: 'flexbox', label: 'Flexbox' },
       { id: 'quick-notes', label: 'Quick Notes' },
     ],
@@ -40,8 +44,12 @@ function App() {
         return <PseudoClassesPlayground showGuides={showGuides} />
       case 'pseudo-elements':
         return <PseudoElementsPlayground showGuides={showGuides} />
+      case 'debugger':
+        return <CssDebuggerPlayground showGuides={showGuides} />
       case 'overflow':
         return <OverflowPlayground showGuides={showGuides} />
+      case 'sizing':
+        return <SizingPlayground showGuides={showGuides} />
       case 'box-model':
         return <BoxModelPlayground showGuides={showGuides} />
       case 'position':
@@ -56,7 +64,7 @@ function App() {
   }, [activeTab, showGuides])
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-100 text-slate-900">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6">
         <header className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm md:flex-row md:items-center md:justify-between">
           <div>
@@ -82,14 +90,27 @@ function App() {
         </header>
 
         <section className="rounded-2xl border border-slate-200 bg-white/80 shadow-sm">
-          <div className="rounded-t-2xl border-b border-slate-200 bg-slate-100/70 px-4 pt-3">
-            <p className="mt-1 pb-4 text-sm text-slate-500">
+          <div className="rounded-t-2xl border-b border-slate-200 bg-slate-50 px-4 pt-3">
+            <p className="mt-1 pb-4 text-sm text-slate-800">
               Learn core CSS concepts through interactive examples.
             </p>
             <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
           </div>
           <div className="p-4">{content}</div>
         </section>
+        <footer className="text-center text-sm text-slate-700">
+          <p>
+            Made with <span className="text-red-500">♥</span> by{' '}
+            <a
+              href="https://www.linkedin.com/in/aravindprabash/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-slate-700 underline-offset-4 hover:underline"
+            >
+              Aravind
+            </a>
+          </p>
+        </footer>
       </div>
     </div>
   )
