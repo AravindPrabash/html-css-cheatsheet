@@ -9,6 +9,7 @@ import { PseudoClassesPlayground } from './modules/PseudoClassesPlayground'
 import { PseudoElementsPlayground } from './modules/PseudoElementsPlayground'
 import { QuickNotes } from './modules/QuickNotes'
 import { SelectorsPlayground } from './modules/SelectorsPlayground'
+import { OverflowPlayground } from './modules/OverflowPlayground'
 
 function App() {
   const tabs = useMemo(
@@ -17,8 +18,9 @@ function App() {
       { id: 'selectors', label: 'Selectors' },
       { id: 'pseudo-classes', label: 'Pseudo Classes' },
       { id: 'pseudo-elements', label: 'Pseudo Elements' },
-      { id: 'box-model', label: 'Box Model' },
       { id: 'position', label: 'Position' },
+      { id: 'box-model', label: 'Box Model' },
+      { id: 'overflow', label: 'Overflow' },
       { id: 'flexbox', label: 'Flexbox' },
       { id: 'quick-notes', label: 'Quick Notes' },
     ],
@@ -38,6 +40,8 @@ function App() {
         return <PseudoClassesPlayground showGuides={showGuides} />
       case 'pseudo-elements':
         return <PseudoElementsPlayground showGuides={showGuides} />
+      case 'overflow':
+        return <OverflowPlayground showGuides={showGuides} />
       case 'box-model':
         return <BoxModelPlayground showGuides={showGuides} />
       case 'position':
@@ -53,7 +57,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6">
         <header className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
