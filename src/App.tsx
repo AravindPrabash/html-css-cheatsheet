@@ -5,6 +5,8 @@ import { BoxModelPlayground } from './modules/BoxModelPlayground'
 import { DisplayPlayground } from './modules/DisplayPlayground'
 import { FlexboxPlayground } from './modules/FlexboxPlayground'
 import { PositionPlayground } from './modules/PositionPlayground'
+import { PseudoClassesPlayground } from './modules/PseudoClassesPlayground'
+import { PseudoElementsPlayground } from './modules/PseudoElementsPlayground'
 import { QuickNotes } from './modules/QuickNotes'
 import { SelectorsPlayground } from './modules/SelectorsPlayground'
 
@@ -13,6 +15,8 @@ function App() {
     () => [
       { id: 'display', label: 'Display' },
       { id: 'selectors', label: 'Selectors' },
+      { id: 'pseudo-classes', label: 'Pseudo Classes' },
+      { id: 'pseudo-elements', label: 'Pseudo Elements' },
       { id: 'box-model', label: 'Box Model' },
       { id: 'position', label: 'Position' },
       { id: 'flexbox', label: 'Flexbox' },
@@ -30,6 +34,10 @@ function App() {
         return <DisplayPlayground showGuides={showGuides} />
       case 'selectors':
         return <SelectorsPlayground showGuides={showGuides} />
+      case 'pseudo-classes':
+        return <PseudoClassesPlayground showGuides={showGuides} />
+      case 'pseudo-elements':
+        return <PseudoElementsPlayground showGuides={showGuides} />
       case 'box-model':
         return <BoxModelPlayground showGuides={showGuides} />
       case 'position':
@@ -71,10 +79,10 @@ function App() {
 
         <section className="rounded-2xl border border-slate-200 bg-white/80 shadow-sm">
           <div className="rounded-t-2xl border-b border-slate-200 bg-slate-100/70 px-4 pt-3">
-            <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
-            <p className="mt-2 pb-3 text-xs text-slate-500">
+            <p className="mt-1 pb-4 text-sm text-slate-500">
               Learn core CSS concepts through interactive examples.
             </p>
+            <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
           </div>
           <div className="p-4">{content}</div>
         </section>

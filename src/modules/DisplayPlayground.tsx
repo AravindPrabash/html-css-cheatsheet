@@ -168,7 +168,7 @@ export function DisplayPlayground({ showGuides }: DisplayPlaygroundProps) {
           </div>
           {dataset === 'inline' ? (
             <div className="mt-3 text-sm">
-              <span className="text-slate-500">The</span>{' '}
+              <span className="text-slate-500">Watch how the the</span>{' '}
               {tokens.map((token) => (
                 <span
                   key={token.label}
@@ -192,7 +192,7 @@ export function DisplayPlayground({ showGuides }: DisplayPlaygroundProps) {
                 </span>
               ))}{' '}
               <span className="text-slate-500">
-                watch how the elements reflow as display switches.
+                flow changes as display switches.
               </span>
             </div>
           ) : (
