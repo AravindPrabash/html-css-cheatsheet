@@ -13,16 +13,16 @@ export function Toggle({ pressed, label, onChange }: ToggleProps) {
       onClick={() => onChange(!pressed)}
       aria-pressed={pressed}
       className={cn(
-        'inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm font-medium transition-colors',
+        'inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/20',
         pressed
-          ? 'border-slate-800 bg-slate-900 text-white'
-          : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50',
+          ? 'border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
+          : 'border-zinc-200 bg-zinc-50 text-zinc-600 hover:border-zinc-300 hover:bg-white',
       )}
     >
       <span
         className={cn(
-          'h-2.5 w-2.5 rounded-full',
-          pressed ? 'bg-white' : 'bg-slate-300',
+          'h-2.5 w-2.5 rounded-full transition-colors duration-200',
+          pressed ? 'bg-white shadow-sm' : 'bg-zinc-400',
         )}
       />
       {label}

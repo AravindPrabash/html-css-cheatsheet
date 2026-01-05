@@ -64,23 +64,25 @@ function App() {
   }, [activeTab, showGuides])
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6">
-        <header className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm md:flex-row md:items-center md:justify-between">
+    <div className="min-h-screen bg-transparent text-zinc-900 selection:bg-indigo-100 selection:text-indigo-900">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 md:px-6 md:py-12">
+        <header className="glass-panel animate-fade-in flex flex-col gap-6 rounded-3xl p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
-              HTML/CSS Cheatsheet
-            </p>
-            <h1 className="mt-2 text-2xl font-semibold text-slate-900 md:text-3xl">
-              Visual recall for core layout rules
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+                HTML/CSS Cheatsheet
+              </p>
+            </div>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl lg:text-5xl">
+              Visual recall for <span className="text-indigo-600">layout rules</span>
             </h1>
-            <p className="mt-2 text-sm text-slate-500">
-              Tweak the controls, watch the live stage, then reset when you want a
-              clean slate.
+            <p className="mt-3 max-w-xl text-zinc-500 md:text-lg">
+              Interact with the controls, watch the live stage, and verify your understanding of core CSS concepts.
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-slate-600">Guides</span>
+          <div className="flex items-center gap-4 rounded-2xl bg-zinc-50/50 p-2 ring-1 ring-zinc-200/50">
+            <span className="pl-2 text-sm font-medium text-zinc-500">Guides</span>
             <Toggle
               pressed={showGuides}
               label={showGuides ? 'On' : 'Off'}
@@ -89,23 +91,26 @@ function App() {
           </div>
         </header>
 
-        <section className="rounded-2xl border border-slate-200 bg-white/80 shadow-sm">
-          <div className="rounded-t-2xl border-b border-slate-200 bg-slate-50 px-4 pt-3">
-            <p className="mt-1 pb-4 text-sm text-slate-800">
-              Learn core CSS concepts through interactive examples.
-            </p>
+        <section className="glass-panel animate-fade-in overflow-hidden rounded-3xl" style={{ animationDelay: '0.1s' }}>
+          <div className="border-b border-zinc-100 bg-zinc-50/50 px-6 pt-4">
+            <div className="mb-4 flex items-center justify-between">
+              <p className="text-sm font-medium text-zinc-500">
+                Interactive Playground
+              </p>
+            </div>
             <Tabs tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="p-4">{content}</div>
+          <div className="bg-white/40 p-6 md:p-8">{content}</div>
         </section>
-        <footer className="text-center text-sm text-slate-700">
+
+        <footer className="animate-fade-in mt-4 text-center text-sm text-zinc-400" style={{ animationDelay: '0.2s' }}>
           <p>
-            Made with <span className="text-red-500">♥</span> by{' '}
+            Made with <span className="text-indigo-400">♥</span> by{' '}
             <a
               href="https://www.linkedin.com/in/aravindprabash/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-slate-700 underline-offset-4 hover:underline"
+              className="font-medium text-zinc-600 underline-offset-4 transition-colors hover:text-indigo-600 hover:underline"
             >
               Aravind
             </a>

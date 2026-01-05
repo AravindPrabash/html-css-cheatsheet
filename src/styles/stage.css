@@ -1,6 +1,6 @@
 .stage-guides {
   background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.22) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+    linear-gradient(to right, rgba(161, 161, 170, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 161, 170, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
